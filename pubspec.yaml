@@ -36,6 +36,8 @@ dependencies:
   dio: ^5.4.3
   get_it: ^8.0.3
   introduction_screen: ^3.1.17
+  weather_icons: ^3.0.0
+  weather: ^3.1.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
