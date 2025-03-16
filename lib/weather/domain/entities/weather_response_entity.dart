@@ -6,12 +6,14 @@ class WeatherResponseEntity extends Equatable {
   final WeatherEntity weather;
   final MainInfoEntity main;
   final WindEntity wind;
+  final DateTime date;
 
   const WeatherResponseEntity({
     required this.weather,
     required this.main,
     required this.wind,
     required this.name,
+    required this.date,
   });
 
   @override
@@ -20,5 +22,6 @@ class WeatherResponseEntity extends Equatable {
         main,
         wind,
         name,
+        date,
       ];
 }

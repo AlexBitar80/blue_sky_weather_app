@@ -4,7 +4,6 @@ import 'package:blue_sky/weather/presentation/providers/weather_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:weather/weather.dart';
 import 'shared/service_locator.dart';
 
 void main() async {

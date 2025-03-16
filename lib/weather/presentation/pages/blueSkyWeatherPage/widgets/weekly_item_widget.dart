@@ -29,69 +29,59 @@ class WeeklyItemWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            width: 60.0,
-            child: Text(
-              day,
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 14.0,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const Spacer(),
-          SizedBox(
-            width: 60.0,
-            child: Row(
-              children: [
-                Icon(
-                  humidityIcon,
-                  color: Colors.lightBlue,
-                  size: 12.0,
-                ),
-                const SizedBox(width: 5),
-                Text(
-                  humidity,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 10.0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-          const Spacer(),
-          SizedBox(
-            width: 64.0,
-            child: Row(
-              children: [
-                Icon(
-                  windSpeedIcon,
-                  color: Colors.lightBlue,
-                  size: 12.0,
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  windSpeed,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 10.0,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-          const Spacer(),
-          SizedBox(
-            child: Icon(
-              icon,
+          Text(
+            day,
+            style: const TextStyle(
               color: Colors.black,
-              size: 12.0,
+              fontWeight: FontWeight.bold,
+              fontSize: 14.0,
             ),
+            textAlign: TextAlign.center,
+          ),
+          const Spacer(),
+          Row(
+            children: [
+              Icon(
+                humidityIcon,
+                color: Colors.lightBlue,
+                size: 14.0,
+              ),
+              const SizedBox(width: 5),
+              Text(
+                humidity,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 10.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          const Spacer(),
+          Row(
+            spacing: 5.0,
+            children: [
+              Icon(
+                windSpeedIcon,
+                color: Colors.lightBlue,
+                size: 14.0,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                windSpeed,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 10.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          const Spacer(),
+          Icon(
+            icon,
+            color: Colors.black,
+            size: 14.0,
           ),
           SizedBox(
             width: 55.0,

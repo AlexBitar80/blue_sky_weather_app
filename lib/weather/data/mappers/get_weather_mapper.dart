@@ -4,6 +4,7 @@ import 'package:blue_sky/weather/domain/entities/entities.dart';
 class GetWeatherMapper {
   static WeatherResponseModel toEntity(WeatherResponseEntity entity) {
     return WeatherResponseModel(
+      date: entity.date,
       weather: [
         WeatherModel(
           main: entity.weather.main,
@@ -28,6 +29,7 @@ class GetWeatherMapper {
 
   static WeatherResponseEntity toModel(WeatherResponseModel model) {
     return WeatherResponseEntity(
+      date: model.date,
       weather: WeatherEntity(
         main: model.weather.first.main,
         description: model.weather.first.description,

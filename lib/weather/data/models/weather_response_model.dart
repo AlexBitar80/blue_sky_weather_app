@@ -7,7 +7,7 @@ class WeatherResponseModel extends Equatable {
   final List<WeatherModel> weather;
   final MainInfoModel main;
   final WindModel wind;
-
+  final DateTime date;
   final String name;
 
   const WeatherResponseModel({
@@ -15,26 +15,29 @@ class WeatherResponseModel extends Equatable {
     required this.main,
     required this.wind,
     required this.name,
+    required this.date,
   });
 
   WeatherResponseModel copyWith({
     List<WeatherModel>? weather,
     MainInfoModel? main,
     WindModel? wind,
-    int? id,
     String? name,
+    DateTime? date,
   }) {
     return WeatherResponseModel(
       weather: weather ?? this.weather,
       main: main ?? this.main,
       wind: wind ?? this.wind,
       name: name ?? this.name,
+      date: date ?? this.date,
     );
   }
 
   factory WeatherResponseModel.fromWeather(Weather weather) {
     return WeatherResponseModel(
       name: weather.areaName ?? '',
+      date: weather.date ?? DateTime.now(),
       weather: [
         WeatherModel(
           description: weather.weatherDescription ?? '',
