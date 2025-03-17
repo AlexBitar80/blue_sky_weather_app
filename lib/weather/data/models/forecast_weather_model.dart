@@ -2,20 +2,20 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-class WeatherModel extends Equatable {
+class ForecastWeatherModel extends Equatable {
   final String main;
   final String description;
 
-  const WeatherModel({
+  const ForecastWeatherModel({
     required this.main,
     required this.description,
   });
 
-  WeatherModel copyWith({
+  ForecastWeatherModel copyWith({
     String? main,
     String? description,
   }) {
-    return WeatherModel(
+    return ForecastWeatherModel(
       main: main ?? this.main,
       description: description ?? this.description,
     );
@@ -28,8 +28,8 @@ class WeatherModel extends Equatable {
     };
   }
 
-  factory WeatherModel.fromMap(Map<String, dynamic> map) {
-    return WeatherModel(
+  factory ForecastWeatherModel.fromMap(Map<String, dynamic> map) {
+    return ForecastWeatherModel(
       main: map['main'] as String,
       description: map['description'] as String,
     );
@@ -37,8 +37,8 @@ class WeatherModel extends Equatable {
 
   String toJson() => json.encode(toMap());
 
-  factory WeatherModel.fromJson(String source) =>
-      WeatherModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory ForecastWeatherModel.fromJson(String source) =>
+      ForecastWeatherModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   bool get stringify => true;

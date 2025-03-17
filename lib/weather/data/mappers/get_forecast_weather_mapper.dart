@@ -1,11 +1,20 @@
 import 'package:blue_sky/weather/data/models/models.dart';
 import 'package:blue_sky/weather/domain/entities/entities.dart';
+import 'package:blue_sky/weather/domain/entities/forecast_weather_entity.dart';
 
-class GetWeatherMapper {
-  static WeatherResponseModel toEntity(WeatherResponseEntity entity) {
-    return WeatherResponseModel(
+import '../../domain/entities/forecast_weather_response_entity.dart';
+import '../../domain/entities/forecast_wind_entity.dart';
+import '../models/forecast_weather_model.dart';
+import '../models/forecast_weather_response_model.dart';
+import '../models/forecast_wind_model.dart';
+
+class GetForecastWeatherMapper {
+  static ForecastWeatherResponseModel toEntity(
+    ForecastWeatherResponseEntity entity,
+  ) {
+    return ForecastWeatherResponseModel(
       weather: [
-        WeatherModel(
+        ForecastWeatherModel(
           main: entity.weather.main,
           description: entity.weather.description,
         ),
@@ -17,17 +26,19 @@ class GetWeatherMapper {
         tempMax: entity.main.tempMax,
         humidity: entity.main.humidity,
       ),
-      name: entity.name,
-      wind: WindModel(
+      wind: ForecastWindModel(
         speed: entity.wind.speed,
         deg: entity.wind.deg,
+        gust: entity.wind.gust,
       ),
+      date: entity.date,
     );
   }
 
-  static WeatherResponseEntity toModel(WeatherResponseModel model) {
-    return WeatherResponseEntity(
-      weather: WeatherEntity(
+  static ForecastWeatherResponseEntity toModel(
+      ForecastWeatherResponseModel model) {
+    return ForecastWeatherResponseEntity(
+      weather: ForecastWeatherEntity(
         main: model.weather.first.main,
         description: model.weather.first.description,
       ),
@@ -38,11 +49,12 @@ class GetWeatherMapper {
         tempMax: model.main.tempMax,
         humidity: model.main.humidity,
       ),
-      name: model.name,
-      wind: WindEntity(
+      wind: ForecastWindEntity(
         speed: model.wind.speed,
         deg: model.wind.deg,
+        gust: model.wind.gust,
       ),
+      date: model.date,
     );
   }
 }

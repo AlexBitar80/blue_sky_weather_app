@@ -21,6 +21,6 @@ class GetWeatherByLatLongUseCaseImpl implements GetWeatherUseCase {
     double lat,
     double long,
   ) async {
-    return getWeatherRepository.getWeatherByLatLong(lat, long);
+    return await getWeatherRepository.getWeatherByLatLong(lat, long);
   }
 }

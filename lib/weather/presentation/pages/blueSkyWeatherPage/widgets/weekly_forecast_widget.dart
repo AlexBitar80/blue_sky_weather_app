@@ -1,6 +1,7 @@
 import 'package:blue_sky/shared/get_weather_icon.dart';
 import 'package:blue_sky/weather/presentation/pages/blueSkyWeatherPage/widgets/Weekly_Item_widget.dart';
 import 'package:flutter/material.dart';
+
 import 'package:weather_icons/weather_icons.dart';
 
 import '../../../../../shared/week_day_to_string.dart';
@@ -32,7 +33,7 @@ class WeeklyForecastWidget extends StatelessWidget {
           return Column(
             children: [
               WeeklyItemWidget(
-                day: WeekDayConverter.weekDayToString(weather.date.weekday),
+                day: StringFormatter.stringToDateTime(weather.date),
                 icon: GetWeatherIcon.getWeatherIcon(weather.weather.main),
                 tempHigh: '${weather.main.tempMax.toStringAsFixed(0)}°',
                 tempLow: '${weather.main.tempMin.toStringAsFixed(0)}°',

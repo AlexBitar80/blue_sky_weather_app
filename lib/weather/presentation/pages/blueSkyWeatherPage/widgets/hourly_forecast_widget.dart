@@ -1,6 +1,7 @@
 import 'package:blue_sky/shared/get_weather_icon.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../shared/week_day_to_string.dart';
 import '../../../providers/weather_provider.dart';
 import 'hourly_item_widget.dart';
 
@@ -31,7 +32,7 @@ class HourlyForecastWidget extends StatelessWidget {
           return HourlyItemWidget(
             wind: '${weather.wind.speed} km/h',
             humidity: '${weather.main.humidity}%',
-            hour: '${weather.date.hour}h',
+            hour: StringFormatter.hourFormatter(weather.date),
             colorIcon: Colors.blue,
             icon: GetWeatherIcon.getWeatherIcon(weather.weather.main),
           );

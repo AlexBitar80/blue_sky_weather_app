@@ -1,17 +1,20 @@
 import 'package:blue_sky/weather/domain/entities/entities.dart';
 import 'package:equatable/equatable.dart';
 
-class WeatherResponseEntity extends Equatable {
-  final String name;
-  final WeatherEntity weather;
-  final MainInfoEntity main;
-  final WindEntity wind;
+import 'forecast_weather_entity.dart';
+import 'forecast_wind_entity.dart';
 
-  const WeatherResponseEntity({
+class ForecastWeatherResponseEntity extends Equatable {
+  final ForecastWeatherEntity weather;
+  final MainInfoEntity main;
+  final ForecastWindEntity wind;
+  final String date;
+
+  const ForecastWeatherResponseEntity({
     required this.weather,
     required this.main,
     required this.wind,
-    required this.name,
+    required this.date,
   });
 
   @override
@@ -19,6 +22,6 @@ class WeatherResponseEntity extends Equatable {
         weather,
         main,
         wind,
-        name,
+        date,
       ];
 }

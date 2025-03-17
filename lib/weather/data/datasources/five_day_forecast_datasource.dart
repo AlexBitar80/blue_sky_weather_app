@@ -1,30 +1,38 @@
-import 'package:blue_sky/weather/data/models/models.dart';
-import 'package:weather/weather.dart';
+import 'package:blue_sky/core/constants/url.dart';
+import 'package:dio/dio.dart';
+
+import '../models/forecast_weather_response_model.dart';
 
 abstract class FiveDayForecastDataSource {
-  Future<List<WeatherResponseModel>> getFiveDayForecastByLatLong(
-      double lat, double long);
+  Future<List<ForecastWeatherResponseModel>> getFiveDayForecastByLatLong(
+    double lat,
+    double long,
+  );
 }
 
 class FiveDayForecastDataSourceImpl implements FiveDayForecastDataSource {
+  Dio dioClient = Dio();
+
   @override
-  Future<List<WeatherResponseModel>> getFiveDayForecastByLatLong(
+  Future<List<ForecastWeatherResponseModel>> getFiveDayForecastByLatLong(
     double lat,
     double long,
   ) async {
-    WeatherFactory weatherFactory = WeatherFactory(
-      '97fbe6f5b0106150917b72eb50750204',
-      language: Language.PORTUGUESE_BRAZIL,
+    final url = Endpoint.urls.getWeaherForecastByLatLong;
+
+    final response = await dioClient.get(
+      url,
+      queryParameters: {
+        'lat': lat,
+        'lon': long,
+        'appid': '97fbe6f5b0106150917b72eb50750204',
+        'units': 'metric',
+        'lang': 'pt_br',
+      },
     );
 
-    try {
-      List<Weather> weather = await weatherFactory.fiveDayForecastByLocation(
-        lat,
-        long,
-      );
-      return weather.map((e) => WeatherResponseModel.fromWeather(e)).toList();
-    } catch (e) {
-      throw Exception(e);
-    }
+    final list = response.data['list'] as List;
+
+    return list.map((e) => ForecastWeatherResponseModel.fromMap(e)).toList();
   }
 }

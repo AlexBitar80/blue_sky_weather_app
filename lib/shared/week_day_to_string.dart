@@ -1,22 +1,16 @@
-class WeekDayConverter {
-  static String weekDayToString(int weekDay) {
-    switch (weekDay) {
-      case 1:
-        return 'Segunda';
-      case 2:
-        return 'Terça';
-      case 3:
-        return 'Quarta';
-      case 4:
-        return 'Quinta';
-      case 5:
-        return 'Sexta';
-      case 6:
-        return 'Sábado';
-      case 7:
-        return 'Domingo';
-      default:
-        return 'Desconhecido';
-    }
+import 'package:intl/intl.dart';
+
+class StringFormatter {
+  static String stringToDateTime(String date) {
+    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss").parse(date);
+    return DateFormat('EEEE', 'pt_Br')
+        .format(dateTime)
+        .toString()
+        .substring(0, 3);
+  }
+
+  static String hourFormatter(String hour) {
+    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss").parse(hour);
+    return DateFormat('HH:mm').format(dateTime);
   }
 }

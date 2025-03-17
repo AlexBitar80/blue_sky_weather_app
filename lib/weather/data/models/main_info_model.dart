@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 class MainInfoModel extends Equatable {
-  final double temp;
-  final double feelsLike;
-  final double tempMin;
-  final double tempMax;
+  final num temp;
+  final num feelsLike;
+  final num tempMin;
+  final num tempMax;
   final num humidity;
 
   const MainInfoModel({
@@ -18,10 +18,10 @@ class MainInfoModel extends Equatable {
   });
 
   MainInfoModel copyWith({
-    double? temp,
-    double? feelsLike,
-    double? tempMin,
-    double? tempMax,
+    num? temp,
+    num? feelsLike,
+    num? tempMin,
+    num? tempMax,
   }) {
     return MainInfoModel(
       temp: temp ?? this.temp,
@@ -44,10 +44,10 @@ class MainInfoModel extends Equatable {
 
   factory MainInfoModel.fromMap(Map<String, dynamic> map) {
     return MainInfoModel(
-      temp: map['temp'] as double,
-      feelsLike: map['feels_like'] as double,
-      tempMin: map['temp_min'] as double,
-      tempMax: map['temp_max'] as double,
+      temp: map['temp'] as num,
+      feelsLike: map['feels_like'] as num,
+      tempMin: map['temp_min'] as num,
+      tempMax: map['temp_max'] as num,
       humidity: map['humidity'] as num,
     );
   }

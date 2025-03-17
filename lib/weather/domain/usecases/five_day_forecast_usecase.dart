@@ -1,10 +1,13 @@
-import 'package:blue_sky/weather/domain/entities/entities.dart';
 import 'package:blue_sky/weather/domain/repositories/five_day_forecast_repository.dart';
 
 import '../../../core/data/results/result.dart';
+import '../entities/forecast_weather_response_entity.dart';
 
 abstract class FiveDayForecastUseCase {
-  Future<Result<List<WeatherResponseEntity>>> call(double lat, double long);
+  Future<Result<List<ForecastWeatherResponseEntity>>> call(
+    double lat,
+    double long,
+  );
 }
 
 class FiveDayForecastUseCaseImpl implements FiveDayForecastUseCase {
@@ -15,10 +18,10 @@ class FiveDayForecastUseCaseImpl implements FiveDayForecastUseCase {
   });
 
   @override
-  Future<Result<List<WeatherResponseEntity>>> call(
+  Future<Result<List<ForecastWeatherResponseEntity>>> call(
     double lat,
     double long,
   ) async {
-    return fiveDayForecastRepository.getFiveDayForecast(lat, long);
+    return await fiveDayForecastRepository.getFiveDayForecast(lat, long);
   }
 }

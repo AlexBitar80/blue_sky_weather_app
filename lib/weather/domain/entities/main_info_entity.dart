@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
 class MainInfoEntity extends Equatable {
-  final double temp;
-  final double feelsLike;
-  final double tempMin;
-  final double tempMax;
+  final num temp;
+  final num feelsLike;
+  final num tempMin;
+  final num tempMax;
   final num humidity;
 
   const MainInfoEntity({
