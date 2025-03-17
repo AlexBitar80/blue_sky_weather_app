@@ -14,6 +14,7 @@ class FiveDayForecastDataSourceImpl implements FiveDayForecastDataSource {
   ) async {
     WeatherFactory weatherFactory = WeatherFactory(
       '97fbe6f5b0106150917b72eb50750204',
+      language: Language.PORTUGUESE_BRAZIL,
     );
 
     try {

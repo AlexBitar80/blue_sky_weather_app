@@ -59,7 +59,6 @@ class WeeklyItemWidget extends StatelessWidget {
           ),
           const Spacer(),
           Row(
-            spacing: 5.0,
             children: [
               Icon(
                 windSpeedIcon,

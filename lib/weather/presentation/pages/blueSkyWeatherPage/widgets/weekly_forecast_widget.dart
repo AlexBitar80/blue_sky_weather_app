@@ -3,11 +3,11 @@ import 'package:blue_sky/weather/presentation/pages/blueSkyWeatherPage/widgets/W
 import 'package:flutter/material.dart';
 import 'package:weather_icons/weather_icons.dart';
 
+import '../../../../../shared/week_day_to_string.dart';
 import '../../../providers/weather_provider.dart';
 
 class WeeklyForecastWidget extends StatelessWidget {
-
-   final WeatherProvider provider;
+  final WeatherProvider provider;
 
   const WeeklyForecastWidget({
     required this.provider,
@@ -32,7 +32,7 @@ class WeeklyForecastWidget extends StatelessWidget {
           return Column(
             children: [
               WeeklyItemWidget(
-                day: '${weather.date.day}/${weather.date.month}',
+                day: WeekDayConverter.weekDayToString(weather.date.weekday),
                 icon: GetWeatherIcon.getWeatherIcon(weather.weather.main),
                 tempHigh: '${weather.main.tempMax.toStringAsFixed(0)}°',
                 tempLow: '${weather.main.tempMin.toStringAsFixed(0)}°',
@@ -40,7 +40,7 @@ class WeeklyForecastWidget extends StatelessWidget {
                 humidityIcon: WeatherIcons.humidity,
                 windSpeed: '${weather.wind.speed} km/h',
                 windSpeedIcon: WeatherIcons.strong_wind,
-              ),            
+              ),
             ],
           );
         },
