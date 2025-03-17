@@ -57,7 +57,7 @@ class TemperatureSection extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Max: ${provider.weatherData?.main.tempMin.toStringAsFixed(0)}°',
+                  'Max: ${provider.weatherData?.main.tempMax.toStringAsFixed(0)}°',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -71,7 +71,7 @@ class TemperatureSection extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Min: ${provider.weatherData?.main.tempMax.toStringAsFixed(0)}°',
+                  'Min: ${provider.weatherData?.main.tempMin.toStringAsFixed(0)}°',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
