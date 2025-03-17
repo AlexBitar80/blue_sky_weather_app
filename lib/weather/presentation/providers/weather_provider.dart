@@ -2,18 +2,19 @@ import 'package:blue_sky/weather/domain/entities/entities.dart';
 import 'package:blue_sky/weather/domain/usecases/usecases.dart';
 import 'package:flutter/material.dart';
 
+import '../../domain/entities/forecast_weather_response_entity.dart';
 import '../../domain/usecases/five_day_forecast_usecase.dart';
 
 class WeatherProvider extends ChangeNotifier {
   final GetWeatherUseCase getWeatherUseCase;
   final FiveDayForecastUseCase fiveDayForecastUseCase;
   WeatherResponseEntity? _weatherData;
-  List<WeatherResponseEntity>? _fiveDayForecast;
+  List<ForecastWeatherResponseEntity>? _fiveDayForecast;
   bool _isLoading = false;
   String? _errorMessage;
 
   WeatherResponseEntity? get weatherData => _weatherData;
-  List<WeatherResponseEntity>? get fiveDayForecast => _fiveDayForecast;
+  List<ForecastWeatherResponseEntity>? get fiveDayForecast => _fiveDayForecast;
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
 

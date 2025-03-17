@@ -5,24 +5,20 @@ import 'package:equatable/equatable.dart';
 
 class WindModel extends Equatable {
   final double speed;
-  final double deg;
-  final double gust;
+  final int deg;
 
   const WindModel({
     required this.speed,
     required this.deg,
-    required this.gust,
   });
 
   WindModel copyWith({
     double? speed,
-    double? deg,
-    double? gust,
+    int? deg,
   }) {
     return WindModel(
       speed: speed ?? this.speed,
       deg: deg ?? this.deg,
-      gust: gust ?? this.gust,
     );
   }
 
@@ -30,15 +26,13 @@ class WindModel extends Equatable {
     return <String, dynamic>{
       'speed': speed,
       'deg': deg,
-      'gust': gust,
     };
   }
 
   factory WindModel.fromMap(Map<String, dynamic> map) {
     return WindModel(
       speed: map['speed'] as double,
-      deg: map['deg'] as double,
-      gust: map['gust'] as double,
+      deg: map['deg'] as int,
     );
   }
 
@@ -54,6 +48,5 @@ class WindModel extends Equatable {
   List<Object> get props => [
         speed,
         deg,
-        gust,
       ];
 }

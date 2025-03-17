@@ -1,9 +1,10 @@
-import 'package:blue_sky/weather/domain/entities/entities.dart';
 import 'package:blue_sky/weather/domain/repositories/five_day_forecast_repository.dart';
 
+import '../../../core/data/feilures/feilure.dart';
 import '../../../core/data/results/result.dart';
+import '../../domain/entities/forecast_weather_response_entity.dart';
 import '../datasources/five_day_forecast_datasource.dart';
-import '../mappers/get_weather_mapper.dart';
+import '../mappers/get_forecast_weather_mapper.dart';
 
 class FiveDayForecastRepositoryImpl implements FiveDayForecastRepository {
   final FiveDayForecastDataSource fiveDayForecastDataSource;
@@ -13,7 +14,7 @@ class FiveDayForecastRepositoryImpl implements FiveDayForecastRepository {
   });
 
   @override
-  Future<Result<List<WeatherResponseEntity>>> getFiveDayForecast(
+  Future<Result<List<ForecastWeatherResponseEntity>>> getFiveDayForecast(
     double lat,
     double long,
   ) async {
@@ -21,10 +22,10 @@ class FiveDayForecastRepositoryImpl implements FiveDayForecastRepository {
       final result = await fiveDayForecastDataSource
           .getFiveDayForecastByLatLong(lat, long);
       return Result.success(
-        result.map((e) => GetWeatherMapper.toModel(e)).toList(),
+        result.map((e) => GetForecastWeatherMapper.toModel(e)).toList(),
       );
     } catch (e) {
-      throw Exception(e);
+      return const Result.failure(Failure(message: 'Error fetching data'));
     }
   }
 }

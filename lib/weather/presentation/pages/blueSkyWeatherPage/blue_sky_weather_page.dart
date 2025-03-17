@@ -48,7 +48,9 @@ class _BlueSkyWeatherPageState extends State<BlueSkyWeatherPage> {
                           const SizedBox(height: 20),
                           HourlyForecastWidget(provider: provider),
                           const SizedBox(height: 20),
-                          WeeklyForecastWidget(provider: provider,),
+                          WeeklyForecastWidget(
+                            provider: provider,
+                          ),
                         ],
                       ),
                     ],

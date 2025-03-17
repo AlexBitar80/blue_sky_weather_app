@@ -1,13 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
-import 'package:weather/weather.dart';
 import 'models.dart';
 
 class WeatherResponseModel extends Equatable {
   final List<WeatherModel> weather;
   final MainInfoModel main;
   final WindModel wind;
-  final DateTime date;
   final String name;
 
   const WeatherResponseModel({
@@ -15,7 +15,6 @@ class WeatherResponseModel extends Equatable {
     required this.main,
     required this.wind,
     required this.name,
-    required this.date,
   });
 
   WeatherResponseModel copyWith({
@@ -23,41 +22,43 @@ class WeatherResponseModel extends Equatable {
     MainInfoModel? main,
     WindModel? wind,
     String? name,
-    DateTime? date,
   }) {
     return WeatherResponseModel(
       weather: weather ?? this.weather,
       main: main ?? this.main,
       wind: wind ?? this.wind,
       name: name ?? this.name,
-      date: date ?? this.date,
     );
   }
 
-  factory WeatherResponseModel.fromWeather(Weather weather) {
+  factory WeatherResponseModel.fromMap(Map<String, dynamic> map) {
     return WeatherResponseModel(
-      name: weather.areaName ?? '',
-      date: weather.date ?? DateTime.now(),
-      weather: [
-        WeatherModel(
-          description: weather.weatherDescription ?? '',
-          main: weather.weatherMain ?? '',
-        )
-      ],
-      main: MainInfoModel(
-        feelsLike: weather.tempFeelsLike?.celsius ?? 0.0,
-        humidity: weather.humidity ?? 0,
-        temp: weather.temperature?.celsius ?? 0.0,
-        tempMax: weather.tempMax?.celsius ?? 0.0,
-        tempMin: weather.tempMin?.celsius ?? 0.0,
+      weather: List<WeatherModel>.from(
+        map['weather']?.map((x) => WeatherModel.fromMap(x)),
       ),
-      wind: WindModel(
-        speed: weather.windSpeed ?? 0.0,
-        deg: weather.windDegree ?? 0.0,
-        gust: weather.windGust ?? 0.0,
-      ),
+      main: MainInfoModel.fromMap(map['main'] as Map<String, dynamic>),
+      wind: WindModel.fromMap(map['wind'] as Map<String, dynamic>),
+      name: map['name'] as String,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'weather': weather
+          .map(
+            (x) => x.toMap(),
+          )
+          .toList(),
+      'main': main.toMap(),
+      'wind': wind.toMap(),
+      'name': name,
+    };
+  }
+
+  factory WeatherResponseModel.fromJson(Map<String, dynamic> source) =>
+      WeatherResponseModel.fromMap(source);
+
+  String toJson() => json.encode(toMap());
 
   @override
   bool get stringify => true;
