@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 
 class WindModel extends Equatable {
   final double speed;
-  final int deg;
+  final double deg;
   final double gust;
 
   const WindModel({
@@ -16,7 +16,7 @@ class WindModel extends Equatable {
 
   WindModel copyWith({
     double? speed,
-    int? deg,
+    double? deg,
     double? gust,
   }) {
     return WindModel(
@@ -37,7 +37,7 @@ class WindModel extends Equatable {
   factory WindModel.fromMap(Map<String, dynamic> map) {
     return WindModel(
       speed: map['speed'] as double,
-      deg: map['deg'] as int,
+      deg: map['deg'] as double,
       gust: map['gust'] as double,
     );
   }

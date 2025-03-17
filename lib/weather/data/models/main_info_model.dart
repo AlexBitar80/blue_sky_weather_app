@@ -7,7 +7,7 @@ class MainInfoModel extends Equatable {
   final double feelsLike;
   final double tempMin;
   final double tempMax;
-  final int humidity;
+  final num humidity;
 
   const MainInfoModel({
     required this.temp,
@@ -48,7 +48,7 @@ class MainInfoModel extends Equatable {
       feelsLike: map['feels_like'] as double,
       tempMin: map['temp_min'] as double,
       tempMax: map['temp_max'] as double,
-      humidity: map['humidity'] as int,
+      humidity: map['humidity'] as num,
     );
   }
 

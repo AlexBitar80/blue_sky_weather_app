@@ -5,7 +5,7 @@ class MainInfoEntity extends Equatable {
   final double feelsLike;
   final double tempMin;
   final double tempMax;
-  final int humidity;
+  final num humidity;
 
   const MainInfoEntity({
     required this.temp,
