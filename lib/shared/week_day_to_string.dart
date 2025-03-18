@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 
 class StringFormatter {
   static String stringToDateTime(String date) {
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss").parse(date);
+    DateTime dateTime = DateFormat("yyyy-MM-dd HH:mm:ss").parse(date);
     return DateFormat('EEEE', 'pt_Br')
         .format(dateTime)
         .toString()
@@ -10,7 +10,7 @@ class StringFormatter {
   }
 
   static String hourFormatter(String hour) {
-    DateTime dateTime = DateFormat("yyyy-MM-dd hh:mm:ss").parse(hour);
+    DateTime dateTime = DateFormat("yyyy-MM-dd HH:mm:ss").parse(hour);
     return DateFormat('HH:mm').format(dateTime);
   }
 }

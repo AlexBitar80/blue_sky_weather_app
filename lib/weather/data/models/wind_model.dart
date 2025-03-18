@@ -4,8 +4,8 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 class WindModel extends Equatable {
-  final double speed;
-  final int deg;
+  final num speed;
+  final num deg;
 
   const WindModel({
     required this.speed,
@@ -13,8 +13,8 @@ class WindModel extends Equatable {
   });
 
   WindModel copyWith({
-    double? speed,
-    int? deg,
+    num? speed,
+    num? deg,
   }) {
     return WindModel(
       speed: speed ?? this.speed,
@@ -31,8 +31,8 @@ class WindModel extends Equatable {
 
   factory WindModel.fromMap(Map<String, dynamic> map) {
     return WindModel(
-      speed: map['speed'] as double,
-      deg: map['deg'] as int,
+      speed: map['speed'] as num,
+      deg: map['deg'] as num,
     );
   }
 
