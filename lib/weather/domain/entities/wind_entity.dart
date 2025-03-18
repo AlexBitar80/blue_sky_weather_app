@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 
 class WindEntity extends Equatable {
-  final double speed;
-  final int deg;
+  final num speed;
+  final num deg;
 
   const WindEntity({
     required this.speed,

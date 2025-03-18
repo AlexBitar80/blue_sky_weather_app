@@ -22,7 +22,9 @@ class GetWeatherRepositoryImpl implements GetWeatherRepository {
       final result = await getWeatherDataSource.getWeatherByLatLong(lat, long);
       return Result.success(GetWeatherMapper.toModel(result));
     } catch (e) {
-      return const Result.failure(Failure(message: 'Error fetching data'));
+      return const Result.failure(
+        Failure(message: 'Error fetching data'),
+      );
     }
   }
 }

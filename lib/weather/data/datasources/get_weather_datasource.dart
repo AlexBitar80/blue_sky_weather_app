@@ -7,7 +7,7 @@ abstract class GetWeatherDataSource {
 }
 
 class GetWeatherDataSourceImpl implements GetWeatherDataSource {
-  final Dio dioClient = Dio();
+  Dio dioClient = Dio();
 
   @override
   Future<WeatherResponseModel> getWeatherByLatLong(

@@ -9,7 +9,8 @@ class Urls extends Endpoints {
       'https://api.openweathermap.org/data/2.5/forecast';
 
   @override
-  String get getWeatherByCityName => '';
+  String get getWeatherByCityName =>
+      'https://api.openweathermap.org/data/2.5/weather';
 
   @override
   String get getWeatherByLatLong =>
