@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "94040204040",
+    "project_id": "blue-sky-app-3a9d0",
+    "storage_bucket": "blue-sky-app-3a9d0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94040204040:android:182451f0e95e5d5e27c2bd",
+        "android_client_info": {
+          "package_name": "com.joaoalexandrebitar.blueSky"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRkrZKLPsMJh1YS3ammSG6V8LIUx12_K0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
