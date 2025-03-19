@@ -101,9 +101,6 @@ class _BlueSkySearchLocationPageState extends State<BlueSkySearchLocationPage> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: ListTile(
-                                  onTap: () {
-                                    Navigator.pop(context, cityName);
-                                  },
                                   title: Text(
                                     cityName,
                                     style: const TextStyle(

@@ -84,7 +84,7 @@ class BlueSkyOnboardingPage extends StatelessWidget {
       ),
       onDone: () {
         Navigator.of(context).pushNamedAndRemoveUntil(
-          AppRoutes.weatherHome,
+          AppRoutes.weatherMainPage,
           (route) => false,
         );
       },

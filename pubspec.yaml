@@ -50,6 +50,22 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   faker: ^2.2.0
   mocktail: ^1.0.4
+  flutter_native_splash: 2.2.16
+  flutter_launcher_icons: 0.10.0
+
+flutter_native_splash:
+  color: "#64B5F6"
+  image: "assets/app/splash.png"
+  android: true
+  ios: true
+
+flutter_icons:
+  image_path: "assets/app/icon.png"
+  ios: true
+  remove_alpha_ios: true
+  android: "launcher_icon"
+  adaptive_icon_background: "#64B5F6"
+  adaptive_icon_foreground: "assets/app/icon-android.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -66,6 +82,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/app/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
