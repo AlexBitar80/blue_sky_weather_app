@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../feilures/feilure.dart';
+import '../../../blue_sky.dart';
 
 class Result<T> extends Equatable {
   final T? _data;

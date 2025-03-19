@@ -1,7 +1,4 @@
-import 'package:blue_sky/weather/domain/repositories/five_day_forecast_repository.dart';
-
-import '../../../core/data/results/result.dart';
-import '../entities/forecast_weather_response_entity.dart';
+import '../../../blue_sky.dart';
 
 abstract class FiveDayForecastUseCase {
   Future<Result<List<ForecastWeatherResponseEntity>>> call(

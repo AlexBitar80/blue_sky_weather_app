@@ -1,10 +1,4 @@
-import 'package:blue_sky/core/data/results/result.dart';
-import 'package:blue_sky/weather/data/datasources/get_weather_by_city_name_datasource.dart';
-import 'package:blue_sky/weather/data/mappers/mappers.dart';
-import 'package:blue_sky/weather/domain/entities/entities.dart';
-
-import '../../../core/data/feilures/feilure.dart';
-import '../../domain/repositories/get_weather_by_city_name_repository.dart';
+import '../../../blue_sky.dart';
 
 class GetWeatherByCityNameRepositoryImpl
     implements GetWeatherByCityNameRepository {

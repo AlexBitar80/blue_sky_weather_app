@@ -1,5 +1,4 @@
-import '../../../core/data/results/result.dart';
-import '../entities/forecast_weather_response_entity.dart';
+import '../../../blue_sky.dart';
 
 abstract class FiveDayForecastRepository {
   Future<Result<List<ForecastWeatherResponseEntity>>> getFiveDayForecast(

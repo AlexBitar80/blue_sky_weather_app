@@ -1,10 +1,4 @@
-import 'package:blue_sky/weather/domain/repositories/five_day_forecast_repository.dart';
-
-import '../../../core/data/feilures/feilure.dart';
-import '../../../core/data/results/result.dart';
-import '../../domain/entities/forecast_weather_response_entity.dart';
-import '../datasources/five_day_forecast_datasource.dart';
-import '../mappers/get_forecast_weather_mapper.dart';
+import '../../../blue_sky.dart';
 
 class FiveDayForecastRepositoryImpl implements FiveDayForecastRepository {
   final FiveDayForecastDataSource fiveDayForecastDataSource;

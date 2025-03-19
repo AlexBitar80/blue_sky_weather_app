@@ -1,10 +1,7 @@
 // ignore_for_file: avoid_print
 
-import 'package:blue_sky/core/constants/url.dart';
-import 'package:blue_sky/weather/data/models/models.dart';
 import 'package:dio/dio.dart';
-
-import '../models/weather_response_model.dart';
+import '../../../blue_sky.dart';
 
 abstract class GetWeatherByCityNameDataSource {
   Future<WeatherResponseModel> getWeatherByCityName(String cityName);

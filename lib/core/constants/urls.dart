@@ -1,4 +1,4 @@
-import 'package:blue_sky/core/constants/url.dart';
+import '../../blue_sky.dart';
 
 class Urls extends Endpoints {
   @override

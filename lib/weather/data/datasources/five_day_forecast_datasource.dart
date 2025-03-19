@@ -1,7 +1,5 @@
-import 'package:blue_sky/core/constants/url.dart';
 import 'package:dio/dio.dart';
-
-import '../models/forecast_weather_response_model.dart';
+import '../../../blue_sky.dart';
 
 abstract class FiveDayForecastDataSource {
   Future<List<ForecastWeatherResponseModel>> getFiveDayForecastByLatLong(

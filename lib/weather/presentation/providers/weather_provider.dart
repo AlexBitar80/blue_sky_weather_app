@@ -1,15 +1,6 @@
 // ignore_for_file: avoid_print
-
-import 'package:blue_sky/weather/data/models/models.dart';
-import 'package:blue_sky/weather/domain/entities/entities.dart';
-import 'package:blue_sky/weather/domain/usecases/get_weather_by_city_name_usecase.dart';
-import 'package:blue_sky/weather/domain/usecases/usecases.dart';
-import 'package:flutter/material.dart';
-
-import '../../../utils/db_util.dart';
-import '../../data/mappers/mappers.dart';
-import '../../domain/entities/forecast_weather_response_entity.dart';
-import '../../domain/usecases/five_day_forecast_usecase.dart';
+import 'package:flutter/foundation.dart';
+import '../../../blue_sky.dart';
 
 class WeatherProvider extends ChangeNotifier {
   final GetWeatherUseCase getWeatherUseCase;

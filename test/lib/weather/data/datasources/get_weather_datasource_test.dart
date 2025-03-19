@@ -1,6 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:blue_sky/core/constants/url.dart';
+import 'package:blue_sky/core/constants/constants.dart';
 import 'package:blue_sky/weather/data/datasources/get_weather_datasource.dart';
 import 'package:blue_sky/weather/data/models/models.dart';
 import 'package:dio/dio.dart';
