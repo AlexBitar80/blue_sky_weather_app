@@ -102,19 +102,27 @@ class _BlueSkySearchLocationPageState extends State<BlueSkySearchLocationPage> {
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
-                                child: ListTile(
-                                  title: Text(
-                                    cityName,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16.0,
+                                child: Dismissible(
+                                  onDismissed: (_) {
+                                    context
+                                        .read<WeatherProvider>()
+                                        .removeFavoriteCity(cityName);
+                                  },
+                                  key: Key(cityName),
+                                  child: ListTile(
+                                    title: Text(
+                                      cityName,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16.0,
+                                      ),
                                     ),
-                                  ),
-                                  trailing: Text(
-                                    '${weather?.main.temp.toStringAsFixed(1)}°C',
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16.0,
+                                    trailing: Text(
+                                      '${weather?.main.temp.toStringAsFixed(1)}°C',
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16.0,
+                                      ),
                                     ),
                                   ),
                                 ),
