@@ -1,6 +1,4 @@
-import 'package:blue_sky/core/data/results/result.dart';
-import 'package:blue_sky/weather/domain/entities/entities.dart';
-import 'package:blue_sky/weather/domain/repositories/get_weather_repository.dart';
+import '../../../blue_sky.dart';
 
 abstract class GetWeatherUseCase {
   Future<Result<WeatherResponseEntity>> call(

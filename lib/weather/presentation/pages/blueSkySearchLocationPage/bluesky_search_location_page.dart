@@ -1,7 +1,7 @@
-import 'package:blue_sky/weather/presentation/providers/weather_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../../blue_sky.dart';
 
 class BlueSkySearchLocationPage extends StatefulWidget {
   const BlueSkySearchLocationPage({

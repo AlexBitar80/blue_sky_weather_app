@@ -1,8 +1,5 @@
-import 'package:blue_sky/weather/domain/entities/entities.dart';
 import 'package:equatable/equatable.dart';
-
-import 'forecast_weather_entity.dart';
-import 'forecast_wind_entity.dart';
+import '../../../blue_sky.dart';
 
 class ForecastWeatherResponseEntity extends Equatable {
   final ForecastWeatherEntity weather;

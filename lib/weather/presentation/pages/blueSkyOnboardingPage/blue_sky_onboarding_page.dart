@@ -1,11 +1,9 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:blue_sky/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-
-import '../../../../shared/images_string.dart';
+import '../../../../blue_sky.dart';
 
 class BlueSkyOnboardingPage extends StatelessWidget {
   const BlueSkyOnboardingPage({

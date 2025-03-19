@@ -1,11 +1,7 @@
-import 'package:blue_sky/shared/get_weather_icon.dart';
-import 'package:blue_sky/weather/presentation/pages/blueSkyWeatherPage/widgets/Weekly_Item_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'package:weather_icons/weather_icons.dart';
-
-import '../../../../../shared/week_day_to_string.dart';
-import '../../../providers/weather_provider.dart';
+import '../../../../../blue_sky.dart';
+import 'widgets.dart';
 
 class WeeklyForecastWidget extends StatelessWidget {
   final WeatherProvider provider;

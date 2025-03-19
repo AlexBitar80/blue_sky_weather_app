@@ -1,5 +1,4 @@
-import 'package:blue_sky/weather/data/models/models.dart';
-import 'package:blue_sky/weather/domain/entities/entities.dart';
+import '../../../blue_sky.dart';
 
 class GetWeatherMapper {
   static WeatherResponseModel toEntity(WeatherResponseEntity entity) {

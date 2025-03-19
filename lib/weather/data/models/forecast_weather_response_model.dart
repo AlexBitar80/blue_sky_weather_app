@@ -1,10 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-
-import 'package:blue_sky/weather/data/models/forecast_weather_model.dart';
-import 'package:blue_sky/weather/data/models/forecast_wind_model.dart';
 import 'package:equatable/equatable.dart';
-import 'models.dart';
+import '../../../blue_sky.dart';
 
 class ForecastWeatherResponseModel extends Equatable {
   final List<ForecastWeatherModel> weather;

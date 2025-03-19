@@ -1,15 +1,9 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:blue_sky/weather/presentation/pages/blueSkyWeatherPage/widgets/temperature_section_widget.dart';
-import 'package:blue_sky/weather/presentation/providers/weather_provider.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
-
-import '../../../../shared/geolocator_service.dart';
-import 'widgets/hourly_forecast_widget.dart';
-
-import 'widgets/weekly_forecast_widget.dart';
+import '../../../../blue_sky.dart';
+import 'widgets/widgets.dart';
 
 class BlueSkyWeatherPage extends StatefulWidget {
   const BlueSkyWeatherPage({

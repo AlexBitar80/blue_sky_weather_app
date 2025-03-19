@@ -1,9 +1,7 @@
-import 'package:blue_sky/shared/get_weather_icon.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../shared/week_day_to_string.dart';
-import '../../../providers/weather_provider.dart';
-import 'hourly_item_widget.dart';
+import '../../../../../blue_sky.dart';
+import 'widgets.dart';
 
 class HourlyForecastWidget extends StatelessWidget {
   final WeatherProvider provider;

@@ -1,12 +1,4 @@
-import 'package:blue_sky/weather/data/models/models.dart';
-import 'package:blue_sky/weather/domain/entities/entities.dart';
-import 'package:blue_sky/weather/domain/entities/forecast_weather_entity.dart';
-
-import '../../domain/entities/forecast_weather_response_entity.dart';
-import '../../domain/entities/forecast_wind_entity.dart';
-import '../models/forecast_weather_model.dart';
-import '../models/forecast_weather_response_model.dart';
-import '../models/forecast_wind_model.dart';
+import '../../../blue_sky.dart';
 
 class GetForecastWeatherMapper {
   static ForecastWeatherResponseModel toEntity(

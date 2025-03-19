@@ -1,6 +1,5 @@
-import 'package:blue_sky/weather/presentation/pages/blueSkySearchLocationPage/bluesky_search_location_page.dart';
-import 'package:blue_sky/weather/presentation/pages/blueSkyWeatherPage/blue_sky_weather_page.dart';
 import 'package:flutter/material.dart';
+import '../../../../blue_sky.dart';
 
 class MainWeatherPage extends StatefulWidget {
   const MainWeatherPage({

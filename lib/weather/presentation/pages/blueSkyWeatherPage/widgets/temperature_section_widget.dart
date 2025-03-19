@@ -1,6 +1,6 @@
-import 'package:blue_sky/weather/presentation/providers/weather_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_icons/weather_icons.dart';
+import '../../../../../blue_sky.dart';
 
 class TemperatureSection extends StatelessWidget {
   final WeatherProvider provider;
