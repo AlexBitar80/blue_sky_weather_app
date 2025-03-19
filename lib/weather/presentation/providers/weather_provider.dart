@@ -6,6 +6,7 @@ import 'package:blue_sky/weather/domain/usecases/get_weather_by_city_name_usecas
 import 'package:blue_sky/weather/domain/usecases/usecases.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/db_util.dart';
 import '../../data/mappers/mappers.dart';
 import '../../domain/entities/forecast_weather_response_entity.dart';
 import '../../domain/usecases/five_day_forecast_usecase.dart';
@@ -57,6 +58,14 @@ class WeatherProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> removeFavoriteCity(String cityName) async {
+    _favoriteCities.remove(cityName);
+    _cityWeather.remove(cityName);
+    await DbUtil.removeCity(cityName);
+    updateCityWeather();
+    notifyListeners();
+  }
+
   Future<void> getFiveDayForecast(double lat, double long) async {
     _isLoading = true;
     _errorMessage = null;
@@ -78,25 +87,34 @@ class WeatherProvider extends ChangeNotifier {
   }
 
   Future<void> loadFavoriteCities() async {
+    _favoriteCities.clear();
+    final cities = await DbUtil.getCities();
+    for (var city in cities) {
+      if (!_favoriteCities.contains(city)) {
+        _favoriteCities.add(city);
+      }
+    }
     updateCityWeather();
   }
 
   Future<void> updateCityWeather() async {
     for (var city in _favoriteCities) {
-      try {
-        final result = await getWeatherByCityNameUseCase(city);
+      if (!_cityWeather.containsKey(city)) {
+        try {
+          final result = await getWeatherByCityNameUseCase(city);
 
-        result.when(
-          success: (weather) {
-            _cityWeather[city] = GetWeatherMapper.toEntity(weather);
-            notifyListeners();
-          },
-          failure: (error) {
-            print('Error fetching weather for $city: $error');
-          },
-        );
-      } catch (e) {
-        print('Error fetching weather for $city: $e');
+          result.when(
+            success: (weather) {
+              _cityWeather[city] = GetWeatherMapper.toEntity(weather);
+              notifyListeners();
+            },
+            failure: (error) {
+              print('Error fetching weather for $city: $error');
+            },
+          );
+        } catch (e) {
+          print('Error fetching weather for $city: $e');
+        }
       }
     }
   }
@@ -110,6 +128,7 @@ class WeatherProvider extends ChangeNotifier {
           _cityWeather[cityName] = GetWeatherMapper.toEntity(weather);
           if (!_favoriteCities.contains(cityName)) {
             _favoriteCities.add(cityName);
+            DbUtil.insertCity(cityName);
             updateCityWeather();
           }
           notifyListeners();
