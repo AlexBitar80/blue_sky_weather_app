@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'shared/service_locator.dart';
 import 'weather/presentation/pages/weatherPage/main_weather_page.dart';
 
@@ -28,6 +29,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<bool> isFirstTime() async {
+      final prefs = await SharedPreferences.getInstance();
+      final isFirst = prefs.getBool('first_time') ?? true;
+
+      if (isFirst) {
+        await prefs.setBool('first_time', false);
+      }
+
+      return isFirst;
+    }
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -36,17 +48,27 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const Scaffold(
-          body: MainWeatherPage(),
+        theme: ThemeData.light(),
+        home: FutureBuilder<bool>(
+          future: isFirstTime(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            } else if (snapshot.hasError) {
+              return Text('Erro: ${snapshot.error}');
+            } else {
+              final firstTime = snapshot.data ?? true;
+              return firstTime
+                  ? const BlueSkyOnboardingPage()
+                  : const MainWeatherPage();
+            }
+          },
         ),
         routes: {
           AppRoutes.watherOnboarding: (context) =>
               const BlueSkyOnboardingPage(),
           AppRoutes.weatherHome: (context) => const BlueSkyWeatherPage(),
+          AppRoutes.weatherMainPage: (context) => const MainWeatherPage(),
         },
       ),
     );

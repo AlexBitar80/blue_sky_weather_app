@@ -80,7 +80,9 @@ class _BlueSkySearchLocationPageState extends State<BlueSkySearchLocationPage> {
                 builder: (context, provider, child) {
                   return provider.isLoading
                       ? const Center(
-                          child: CircularProgressIndicator.adaptive(),
+                          child: CircularProgressIndicator.adaptive(
+                            backgroundColor: Colors.white,
+                          ),
                         )
                       : ListView.builder(
                           shrinkWrap: true,

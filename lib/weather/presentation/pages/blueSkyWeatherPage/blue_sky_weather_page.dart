@@ -49,7 +49,9 @@ class _BlueSkyWeatherPageState extends State<BlueSkyWeatherPage> {
         builder: (context, provider, child) {
           return provider.isLoading
               ? const Center(
-                  child: CircularProgressIndicator.adaptive(),
+                  child: CircularProgressIndicator.adaptive(
+                    backgroundColor: Colors.white,
+                  ),
                 )
               : Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
