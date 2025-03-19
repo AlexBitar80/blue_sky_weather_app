@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../../blue_sky.dart';
 
 abstract class GetWeatherDataSource {
@@ -18,7 +19,7 @@ class GetWeatherDataSourceImpl implements GetWeatherDataSource {
       queryParameters: {
         'lat': lat,
         'lon': long,
-        'appid': '97fbe6f5b0106150917b72eb50750204',
+        'appid': dotenv.env['OPEN_WEATHER_API_KEY'],
         'units': 'metric',
         'lang': 'pt_br',
       },
