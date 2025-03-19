@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../../blue_sky.dart';
 
 abstract class GetWeatherByCityNameDataSource {
@@ -18,7 +19,7 @@ class GetWeatherByCityNameDataSourceImpl
         Endpoint.urls.getWeatherByCityName,
         queryParameters: {
           'q': cityName,
-          'appid': '97fbe6f5b0106150917b72eb50750204',
+          'appid': dotenv.env['OPEN_WEATHER_API_KEY'],
           'units': 'metric',
           'lang': 'pt_br',
         },

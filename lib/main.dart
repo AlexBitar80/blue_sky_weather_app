@@ -3,6 +3,7 @@ import 'package:blue_sky/weather/presentation/pages/pages.dart';
 import 'package:blue_sky/weather/presentation/providers/weather_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ void main() async {
   ]);
   configureLocator();
   await initializeDateFormatting('pt_BR', null);
+  await dotenv.load(fileName: ".env");
 
   runApp(const MyApp());
 }
